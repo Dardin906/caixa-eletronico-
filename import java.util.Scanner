@@ -1,0 +1,70 @@
+import java.util.Scanner
+/*
+ * You can edit, run, and share this code.
+ * play.kotlinlang.org
+ */
+fun main() {
+    
+    
+     class Conta(val codbanco: Int, val codagencia: Int, val numconta: Int, var totcred: Double, var totdebt: Double, var saldo: Double) {
+         fun menu(opcao:Int) {
+         val scan = Scanner(System.`in`)
+         var opt = scan.nextLine().trim().toInt()
+         while(opt!=0) {
+         println()
+         println("Opções 1")
+         println()
+         println("1. Depositar")
+         println("2. Sacar")
+         println("3. Extrato")
+         println("4. Transferencia")
+         println()
+         println("0. Sair")
+         println()
+         opt=1
+         if(opt==1) {
+           depositar(5000.00)
+           opt=0
+           }
+         }
+       }
+           
+           
+         fun depositar(valor: Double) {
+           totcred+=valor
+           saldo+=valor
+           println("Depoistado $valor, Total Créditos: $totcred, Saldo: $saldo")
+       }
+       fun sacar(valor: Double) {
+           totdebt+=valor
+           saldo-=valor
+           println("Sacar $valor, Total Debito: $totdebt, Saldo: $saldo")
+       }
+       fun tirarextrato() {
+           println("Seu Total Créditos: $totcred, Seu Total Débitos: $totdebt, Seu Saldo Atual: $saldo")
+       }
+       fun tranferir(codbancodest: Int, codagenciadest: Int, numcontadest: Int, valor: Double) {
+           if(saldo>=valor) {
+           totdebt+=valor
+           saldo-=valor
+           println("Tranferir o valor do $valor para o Banco: $codbancodest Agencia: $codagenciadest Conta: $numcontadest")
+           } else{
+               println("Saldo insuficiente")
+           }
+       }
+            
+      }
+     val minhaConta = Conta(1,5000,1234567,0.00,0.00,0.00)
+     minhaConta.depositar(50000.00)
+     minhaConta.depositar(20000.00)
+     minhaConta.tirarextrato()
+     minhaConta.sacar(3000.00)
+     minhaConta.sacar(2000.00)
+     minhaConta.tranferir(237,6999,234567,1000.00)
+     minhaConta.tirarextrato()
+     minhaConta.tranferir(312,77,123,2000.00)
+     minhaConta.sacar(2000.00)
+     minhaConta.menu(0)
+    
+        
+     }

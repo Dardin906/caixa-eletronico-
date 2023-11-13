@@ -1,0 +1,72 @@
+fun main() {
+    // Crie uma classe genérica IMC e o método para o as 
+    // calculo do IMC = peso / (altura ^ 2)
+    open class Forma() {
+        open fun perimetro() {
+        }
+        open fun area() {
+            
+        }
+    }
+    class Retangulo(val lado1: Double,val lado2: Double)
+    : Forma() {
+        override fun perimetro() {
+            var perimetro = lado1*2+lado2*2
+            println("o perimetro do retangulo é $perimetro")
+        }
+        override fun area() {
+            var area = lado1*lado2
+            println("o perimetro do retangulo é $area")
+        }
+       
+    }
+    val meuRetangulo=Retangulo(10.0,20.0)
+    meuRetangulo.perimetro()
+    meuRetangulo.area()
+    
+
+    class Quadrado(val lado: Double)
+    : Forma() {
+        override fun perimetro() {
+            var perimetro = 4 * lado
+            println("o perimetro do retangulo é $perimetro")
+        }
+        override fun area() {
+            var area = lado*lado
+            println("o perimetro do retangulo é $area")
+        }
+    }
+    val meuQuadrado=Quadrado(10.0)
+    meuQuadrado.perimetro()
+    meuQuadrado.area()
+    
+    
+    class Triangulo(val lado1: Double,val lado2: Double, val lado3: Double)
+    : Forma() {
+        override fun perimetro() {
+            var perimetro = lado1+lado2+lado3
+            println("o perimetro do triangulo é $perimetro")
+        }
+        override fun area() {
+            var p = (lado1+lado2+lado3) / 2
+            var area = Math.pow(p * ((p - lado1) * (p - lado2) * (p - lado3)),0.5)
+            println("o perimetro do triangulo é $area")
+        }
+    }  
+    val meuTriangulo=Triangulo(3.0,4.0,5.0)
+    meuTriangulo.perimetro()
+    meuTriangulo.area()
+    
+    class Circulo(val lado1: Double,val lado2: Double, val lado3: Double)
+    : Forma() {
+        override fun perimetro() {
+            var perimetro = lado1+lado2+lado3
+            println("o perimetro do triangulo é $perimetro")
+        }
+        override fun area() {
+            var p = (lado1+lado2+lado3) / 2
+            var area = Math.pow(p * ((p - lado1) * (p - lado2) * (p - lado3)),0.5)
+            println("o perimetro do triangulo é $area")
+        }
+    }  
+}

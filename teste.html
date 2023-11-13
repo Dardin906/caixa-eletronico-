@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+<script>
+ 
+
+    // Calculo de IR 
+    // IR = Salario Base (SB) * %Desconto - Desconto padrao 
+    // SB = Salario Bruto - INSS 
+    // INSS - Salario Bruto * %Desconto 
+
+    //Tabela INSS 
+    //0 - 1320 0%
+    //1000.01 - 2571.29 5%
+    //2000.01 - 3845.94 10%
+    //6000.01 - 7507.49 15%
+    // Acima de 7507.49 20%
+
+    //Tabela IR 
+    // 0-2112 0%
+    // 1000.01 - 2826.65 7.5%  158.40 
+    // 2000.01 - 3845.94 15.0% 370.40
+    // 6000.01 - 4664.68 22.5% 651.73
+    // Acima de 4664.68 27.5% 884.96
+
+    //Salario bruto (SB)
+    // INSS = 7507.49 * 0.14 = 1051.05
+    // SB = 20000 - 1051.05 = 18948.95
+    // IR = 18945.95 * 0.275 - 884.96 = 4326.00
+
+    function inss(SalBruto) {
+
+    }
+
+    function calcinss(salbruto) {
+        //INSS
+        var percINSS=0.075;
+        var descinss=0;
+
+        if (SalBruto > 0 && salBruto <= 1320.00) {
+            percinss = 0.075;
+            descinss = 0.0;
+        if(SalBruto>2571.29) {
+            if(SalBruto>3845.94) {
+                if(SalBruto>7507.49) {
+                    INSS=1051.05
+                    percINSS=0.14;
+                    descinss=174.08;
+                }    
+                else {
+                    percINSS=0.12;
+                    descinss=96.94;
+                }
+            }
+            else {
+                percINSS=0.09;
+                descinss=19.80;
+            }
+        }
+    }
+    return INSS;
+    }
+    var SalBruto = 20000;
+    var inss=calcinss(SalBruto);
+    console.log(calcinss(SalBruto));
+
+    function calcir(SalBase) {
+        //IR
+        if (SalBase>2112.00) {
+        if(SalBase>2826.65) {
+            if(SalBase>3845.94) {
+                if(SalBase>4664.68) {
+                        percINSS=0.275;
+                        descir=884.96;
+                    }
+                else {
+                    percINSS=0.225;
+                    descir=651.73;
+                }
+            }
+            else {
+                percINSS=0.15;
+                descir=370.40;
+            }
+        }
+        else {
+            percINSS=0.075;
+            descir=158.40;
+        }
+    }
+        return ir;
+    }
+
+    function salliq(salbruto) {
+        inss=calcinss(salbruto);
+        ir=calcir(salbruto-inss);
+        return salbruto-inss-ir;
+    }
+
+    var IR=0.00;
+    var descir=0;
+    var SalBruto=20000.00;
+    var SalBase=0.00;
+    var INSS=0.00;
+    var percINSS=0.00;
+    var descinss=0;
+    if (SalBruto>1320.00) {
+        if(SalBruto>2571.29) {
+            if(SalBruto>3845.94) {
+                if(SalBruto>7507.49) {
+                    INSS=1051.05
+                    percINSS=0.14;
+                    descinss=174.08;
+                }    
+                else {
+                    percINSS=0.12;  
+                    descinss=96.94;
+                }
+            }
+            else {
+                percINSS=0.09;
+                descinss=19.80;
+            }
+    }
+}
+    SalBase = SalBruto - INSS;
+    console.log(IR);
+    console.log(SalBase);
+    if (SalBase>2112.00) {
+        if(SalBase>2826.65) {
+            if(SalBase>3845.94) {
+                if(SalBase>4664.68) {
+                        percINSS=0.275;
+                        descir=884.96;
+                    }
+                else {
+                    percINSS=0.225;
+                    descir=651.73;
+                }
+            }
+            else {
+                percINSS=0.15;
+                descir=370.40;
+            }
+        }
+        else {
+            percINSS=0.075;
+            descir=158.40;
+        }
+    }
+    IR=SalBase * percIR - descir;
+    console.log(IR);
+    totDesc = INSS + IR;
+    SalLiq = SalBruto - INSS - IR;
+    console.log(totDesc);
+    console.log()
+
+        
+
+
+    
+
+
+   
+    
+
+</script>
+</body>
+</html>
